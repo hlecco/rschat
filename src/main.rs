@@ -3,7 +3,7 @@ use std::net::TcpListener;
 use rschat::Client;
 
 fn main() {
-    let listener = TcpListener::bind("127.0.0.1:8080").expect("Can't bind address");
+    let listener = TcpListener::bind("0.0.0.0:8080").expect("Can't bind address");
     listener.set_nonblocking(true).unwrap();
 
     let mut clients: Vec<Client> = Vec::new();
