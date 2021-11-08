@@ -33,7 +33,7 @@ fn main() {
                     _ => {}
                 }
 
-                if accepted {
+                if accepted && (Vec::len(&clients) < 50) {
                     Client::broadcast(
                         &Message::new(MsgType::MSG, "server", &format!("Say hi to \"{}\"", &msg.from)),
                         &clients,
@@ -74,6 +74,9 @@ fn main() {
             client.warn();
         }
 
-        thread::sleep(time::Duration::from_millis(100));
+        // Remove dead connections
+        clients = clients.into_iter().filter(|c| c.is_alive.get()).collect();
+
+        thread::sleep(time::Duration::from_millis(20));
     }
 }
