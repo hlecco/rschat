@@ -4,7 +4,7 @@ A project for learning Rust and networking
 
 ## How to use
 
-`cargo run` initializes the app at `127.0.0.1:8080`.
+`cargo run` initializes the app at port `8080`.
 
 There's also a docker image available (though not on the repository yet)
 

@@ -51,7 +51,7 @@ impl Client {
 
     pub fn warn(&self) {
         if self.is_alive.get() {
-            if self.counter.get() > 10 {
+            if self.counter.get() > 100 {
                 let _ = self.send(&Message::new(MsgType::CHK, "server", ""));
                 self.fail_counter.set(self.fail_counter.get() + 1);
                 self.counter.set(0);
